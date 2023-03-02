@@ -1,0 +1,98 @@
+Package = ansible, python, httpd/apache2
+=========================================
+
+# nano  /etc/ansible/host
+
+slave1   ansible_ssh host=192.168.9.67  [Public ip of slave1]
+or
+[Group]
+192.168.1.20
+
+--------------------------------------
+--------------------------------------
+
+# ansible-playbook  Testplay.yaml
+# ansible  -m  ping  all
+# ansible  -m  ping  slave1
+# ansible all -i /etc/ansible/hosts --list-hosts 
+
+
+
+======================================
+
+***********************
+Ansible Playbook - Yaml
+***********************
+
+---
+
+ - hosts: slave1
+   sudo: no
+   name: play1
+   tasks:
+    - name: Install web service
+      yum: name=httpd state=latest
+
+ - hosts: slave2
+   sudo: no
+   name: play3
+   tasks:
+    - name: Install web service
+      apt: name=apache2 state=latest
+
+
+=======================================
+service – Manage service - Yaml sample
+=======================================
+---
+
+- hosts: slave2
+   sudo: no
+   name: play3
+   tasks:
+    - name: Start service 
+      service: name=httpd state=started
+
+
+============
+Key Sharing
+============
+
+Master : 
+--------
+# cd /root/.ssh
+# cat  id_rsa.pub    [Copy the key and paste in slave1]
+
+Slave1 :
+---------
+# cd   /root/.ssh
+
+# nano   authorized_keys  [paste key here]
+
+*****************************************************
+*****************************************************
+
+
+---
+
+ - hosts: production_server
+   name: play1
+   tasks:
+    - name: Patching server
+      yum: name=* state=latest
+
+ - hosts: production_server
+   name: play2
+   tasks:
+    - name: Reeboting server
+      reboot:
+
+  - hosts: production_server
+    name: play3
+    tasks:
+     - name: Start service httpd, if not started
+       service: name=httpd state=started
+
+ 
+
+
