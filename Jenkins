@@ -1,0 +1,21 @@
+1. Install Jenkins, Java, httpd, Git, Docker, Java, Wget, httpd on all servers
+
+After Installation
+------------------
+
+Node-Slave-Connection
+**********************
+1. Opening Dashboard
+
+publicip:8080  [Make sure putting Server Public ip and 8080] eg - http://3.12.136.247:8080
+
+	• cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+2. Create Node and get agent.jar file
+
+3. Put it in Node server to join with Master
+
+4. Now create job1 and pair it to Node 1
+
+5. Now create Job2 and pair it ro Node 2
