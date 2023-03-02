@@ -2,19 +2,17 @@
 Simple Docker File - we can create container easily
 =================================================
 # yum install docker
-# docker build  .  -t   "New_image (Nginx-apache-container)"
-# docker run -it -d -p 81:80  "New_image (Nginx-apache-container)"
 
-Sample Dockerfile
------------------
-
+>> Sample Dockerfile
 # nano Dockerfile
 
 FROM nginx
 RUN apt-get update
 RUN apt-get -y install apache2
 
----------------------------------------
+# docker build  .  -t   "New_image (Nginx-apache-container)"
+# docker run -it -d -p 81:80  "New_image (Nginx-apache-container)"
+
 
 
 To Check website running
