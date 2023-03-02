@@ -1,0 +1,71 @@
+=================================================
+Simple Docker File - we can create container easily
+=================================================
+# yum install docker
+# docker build  .  -t   "New_image (Nginx-apache-container)"
+# docker run -it -d -p 81:80  "New_image (Nginx-apache-container)"
+
+Sample Dockerfile
+-----------------
+
+# nano Dockerfile
+
+FROM nginx
+RUN apt-get update
+RUN apt-get -y install apache2
+
+---------------------------------------
+
+
+To Check website running
+Just check service started in both inside container and local server
+Put public Ip with port opend
+Eg http://13.126.183.141:81/   here 85 which I mentioned as -p 85:80
+
+=====================================================================
+=====================================================================
+
+=============================
+Manual Method for pull image: 
+=============================
+# yum install docker
+# docker --version
+# docker pull "image name"
+# docker images 
+# docker run -it -d "imageID" {Now cotainer will run to see it ps}
+# docker ps 
+# docker ps -a 
+
+==================================
+>>> Go inside container
+>>> Install packages in container
+==================================
+
+# docker exec -it "Containerid" bash
+# apt-get update
+# apt-get -y install apache2 
+# service apache2 start
+# exit
+
+===============================
+3. Now come outside and commit 
+===============================
+
+# docker commit "containerID"  "New_apache_container"
+# docker run -it -p 85:80 -d  "New_apache_containerid"
+
+Now you will have new conatainer with apache installed
+-------------------------------------------------------
+
+# docker stop  "containerID"
+# docker kill  "containerID"
+# docker rm  "containerID"
+# docker rmi  "ImageID"
+
+
+
+To Check website running
+Just check service started in both container and local
+Put public Ip with port opend
+Eg http://13.126.183.141:85/   here 85 which I mentioned as 
+-p 85:80
