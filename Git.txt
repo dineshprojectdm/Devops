@@ -1,0 +1,69 @@
+GIT
+================
+Making Normal Repository to Git Repository
+==========================================
+# git init 
+# git add filename 
+# git commit -m "Comment"
+# git status
+
+=====================================================
+Pushing file from local machine to Github
+=====================================================
+Syncing local Repository to Remote repository(GITHUB)
+
+# git remote add origin "GITHUB URL"
+# git remote show origin
+
+>> Have to create authentication token - Instead of pass word give token name
+
+# git push origin master
+
+
+
+==========================================
+Pulling files from Github to local machine
+==========================================
+Cloning - Methods [Have to create Token-steps availabe in youtube]
+
+# git clone   "Clone GITHUB URL"
+# git clone https://tokekey@githuburl
+
+>> Example : # git clone https://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@github.com/DineshGithub111/Project1.git 
+
+# git pull origin master    
+
+
+===============================================================
+Branch - You can only create branch only afer cloning part done
+===============================================================
+# git branch  "Branch name"   [Creating branch Eg - node1]
+# git branch -D  branch name  [Deleting branch]
+# git checkout branch name  [To switch branch]
+# git push origin node1  [It will push the files in created node1 dir to  GITHUB
+
+=======
+GIT log 
+=======
+# git log
+# git revert "comitid"
+# git diff oldcommitid  newcommitid  [ To compare what are all changed done with previous version]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
