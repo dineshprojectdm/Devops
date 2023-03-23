@@ -1,0 +1,213 @@
+1. What is Devops, Explain Devops life cycle
+
+DevOps  will integrates with developers and operations teams in order to improve collaboration >> productivity
+DevOps is a combination of multiple tools and services which are used to deliver the project as much as faster
+by automating infrastructure
+*************************************************************
+
+* How do all these tools work together?
+
+1. Developers develop the code and this source 
+code is managed by Version Control System 
+tools like Git etc.
+
+2. Developers send this code to the Git repository 
+and any changes made in the code is committed to
+this Repository Jekins will get trigered and act according to build script
+
+3. Jenkins pulls this code from the repository 
+using the Git plugin and build it according to script
+
+4. Configuration management tools like Ansible, Chef, Puppet
+deploys & provisions testing environment. If no error then it will apply in Production 
+According to Job written in Jenkins eg - Build script
+
+6. After deployment It is continuously monitored by tools 
+like Nagios.
+
+========================================================================================
+
+2. What are devops tools used in life cycle
+
+Stages of Devops Lifecycle.
+Automated CI/CD Pipeline
+
+>> Continues Development [ANT, Maven]
+>> Version control   [GIT]
+>> Continuous Integration [Jenkins]
+>> Continues Deployment [Docker, Kubernetes, Ansible]
+>> Continues testing [Selenium]
+>> Continues Monitoring [Nagios]
+
+=====================================================
+
+3. What is Git
+
+Package : Git
+
+Git is a version control tool. Developer will develop the code and push it to Git repository
+We can push pull any files between server to Git repository
+It can be maintained by GUI or Command line. 	
+
+Procedure : 
+
+First make repository to Git repository 
+>> git init
+Push : >> add >> commit >> remote add origin GitURL >> push
+Pull : >> clone >> pull origin master
+Branch :  git branch name >> checkout branchname 
+
+
+=======================================================
+
+4. What is Jenkins ?
+
+Jenkins comes under continues integration. Its a open source automation server written in Java
+We can asure continues delivery.
+
+Jenkins slave join by After creating new node in Jenkins,
+
+>> Downloading agent.jar
+>> pasting, Launch >> java -jar agent.jar ........ in Slave server.
+
+
+
+================================================================
+
+5. What is Docker, difference between DOcker and Virtual Machine
+
+>> Docker : Docker is a containerization tools to performs OS level virtualization.
+>> package up an application with all of the parts it needs, such as libraries and other dependencies, and 
+   ship it all out as one package
+>> So that it can be assured that the application will run on any other Linux machine for testing purpose
+>> Docker container size is very less even 100mb when comparing to VM Gbs
+
+DOcker VS Virtual Machine
+
+Docker  >> Hardware >> Host os >> COntainer Engine[Docker] >> Bin/Lib >> Application
+VM      >> Hardsware >> Host OS >> Hypervisor >> Guest OS >> Application
+
+
+====================================================================
+
+6. What is Dockerfile ?
+
+Docker file is a  group of commands to assemble an image. It is used to build an image automaticaly by script
+# docker build . -t new_image name
+
+# nano Dockerfile
+
+FROM nginx
+RUN apt-get update
+RUN apt-get -y install apache2
+
+docker buid . -t   new_ubuntu_dockerfile
+docker run -it -p 84:80 -d  new_ubuntu_dockerfile
+
+********Sample************
+
+==========================================================================
+
+
+7. What is Docker volume and Explain it ?
+
+============================================================================
+
+8 What is Microservice ??
+
+Microservice are software development architecture style that structure application as single bundle
+
+Notification + Mail + payment + location service etc
+
+Each microservice are deployed in docker container. Containerised microservice	
+
+==============================================================
+
+9. ps aux   [To see process running inside container]
+
+
+===============================================================
+
+10. What is container Orchestration
+
+Container orchestration automates the deployment, management, scaling, and networking of containers
+
+=================================================================
+
+11. What is Kubernetes ?
+
+• Kubernertes is container orchestration tool
+• Its for managing microservices, containerized applications
+* Master slave architecture
+• Job is to Monitor, Scale, restart containers automaticaly
+• Managing multiple containers
+• Developed by google 
+Same Master Node concept like docker swarm
+
+Explanation : How pplication Evolved
+************************************
+
+• Initialy it was like this when create UBER App, Example
+• Then it was splitted to Microservices and stored in different different servers
+• If one service down then entire app will cause problem. Because one programe from "Mail "may call Notification service. Linked 
+
+Dockerised Micro Service Software application :
+*************************************************
+
+• Here comes Kubernetes to solve this
+• Every service splitted into container
+• Program will not call from one servce to another instead it will use JASON to communicate from one container to another
+• All service in one server. With different container
+
+
+==========================================================================================
+
+12. what is Kubeadm, Kubectl, Kubelet
+
+
+Master node Components : API server, Controller Manager  [Kubectl]
+Worker node Components : Kube-proxy, docker ccontainer, Pod, [Kubelet]
+
+Kubeadm : kubeadm is a new tool that helps you to install and set up a Kubernetes cluster
+Kubectl : It will interact with API server. Command line tool. Each command is converted into API call
+Kubelet : It will communicate with API server [Worker node to Master node]
+
+
+13. What is kubernetes object
+
+Pod: Generally one or more container. 1 container = Application 2 container, = DB container etc
+     Two are tightly coupled. Mostly one pod run one container. 
+ 
+Service : Exposing pods to outside thourgh service yaml file 
+
+Deployment : Deployin pods with mutiple replica.. Scaling is easy by change editing deployment yaml file.
+
+==========================================================================================
+
+13. What is YAML file ?
+
+"YAML Ain't Markup Language, 
+
+===========================================================================================
+
+14. Explain Ansible ?
+
+Ansible is a configuration management tool and Kubernetes is a Docker container management tool.
+
+• Installing softwares and configuring changes in multiple syserver from one server
+• Playbook are written in YAML file
+• Play book contains, Host, Name, Tasks
+
+===============================================================================================
+
+15. What is difference between, Chef puppet ansible ?
+
+In Chef and puppet we must install agent in all client server. So when ever we want to change somethig in client server this master will communicate with that agent in client.. So it depends on client agent..
+
+But in Ansible, Just install ansible in all master and client.. It is enough no need to install and maintain agnets.
+
+===========================================================================
+16. W
+
+
+17. 
