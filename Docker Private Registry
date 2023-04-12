@@ -14,3 +14,13 @@ sudo docker run \
 
 
 For Checking >> Publicip:8080
+
+Now we created our own Docker Private Registry
+Next we have to push Own own images to Private registry
+
+Below is not working 
+=========================
+# docker pull nginx
+# docker tag docker.io/library/nginx:latest 3.17.191.138:5000/ajaxnginx
+# docker push docker.io/library/nginx:latest 3.17.191.138:5000
+
